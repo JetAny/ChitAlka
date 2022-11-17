@@ -6,9 +6,11 @@ namespace DB_ChitAlka
     public partial class Book
     {
         public int Id { get; set; }
-        public string Name { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public string BookTitle { get; set; } = null!;
+        public string Annotation { get; set; } = null!;
         public string? Genre { get; set; }
-        public string BookImage { get; set; } = null!;
+        public string? BookImage { get; set; }
+        //public List<Section>? Section { get; set; }
+        public int? AuthorId { get; set; }
     }
 }

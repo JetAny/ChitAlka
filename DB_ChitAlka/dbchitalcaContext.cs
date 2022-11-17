@@ -19,7 +19,7 @@ namespace DB_ChitAlka
 
         public virtual DbSet<Author> Authors { get; set; } = null!;
         public virtual DbSet<Book> Books { get; set; } = null!;
-        public virtual DbSet<Capter> Capters { get; set; } = null!;
+        public virtual DbSet<Section> Sections { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<Userlibrary> Userlibraries { get; set; } = null!;
 
@@ -31,7 +31,7 @@ namespace DB_ChitAlka
 //                You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see
 //                    https://go.microsoft.com/fwlink/?linkid=2131148.
                           //For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySql("server=localhost;database=dbchitalca;uid=root;pwd=Tucha0425#", ServerVersion.Parse("8.0.30-mysql"));
+                optionsBuilder.UseMySql("server=localhost;database=dbchitalca20;uid=root;pwd=Tucha0425#", Microsoft.EntityFrameworkCore. ServerVersion.Parse("8.0.30-mysql"));
             }
         }
 
@@ -44,9 +44,9 @@ namespace DB_ChitAlka
             {
                 entity.ToTable("author");
 
-                entity.Property(e => e.FirstName).HasMaxLength(100);
+                entity.Property(e => e.FirstName).HasMaxLength(15);
 
-                entity.Property(e => e.LastName).HasMaxLength(100);
+                entity.Property(e => e.LastName).HasMaxLength(20);
             });
 
             modelBuilder.Entity<Book>(entity =>
@@ -55,24 +55,24 @@ namespace DB_ChitAlka
 
                 entity.Property(e => e.BookImage).HasMaxLength(100);
 
-                entity.Property(e => e.Description).HasMaxLength(500);
+                entity.Property(e => e.Annotation).HasMaxLength(500);
 
                 entity.Property(e => e.Genre).HasMaxLength(20);
 
-                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.BookTitle).HasMaxLength(100);
             });
 
-            modelBuilder.Entity<Capter>(entity =>
+            modelBuilder.Entity<Section>(entity =>
             {
-                entity.ToTable("capter");
+                entity.ToTable("section");
 
-                entity.Property(e => e.CapterName)
+                entity.Property(e => e.Title)
                     .HasMaxLength(100)
-                    .HasColumnName("capterName");
+                    .HasColumnName("Title");
 
-                entity.Property(e => e.CapterText)
-                    .HasMaxLength(100)
-                    .HasColumnName("capterText");
+                entity.Property(e => e.Text)
+                    .HasMaxLength(20000)
+                    .HasColumnName("Text");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -81,32 +81,26 @@ namespace DB_ChitAlka
 
                 entity.HasIndex(e => new { e.Id, e.Password, e.FirstName, e.LastName, e.NickName, e.Role }, "user_Id_IDX");
 
-                entity.Property(e => e.FirstName).HasMaxLength(100);
+                entity.Property(e => e.FirstName).HasMaxLength(15);
 
-                entity.Property(e => e.LastName).HasMaxLength(100);
+                entity.Property(e => e.LastName).HasMaxLength(20);
 
-                entity.Property(e => e.NickName).HasMaxLength(100);
+                entity.Property(e => e.NickName).HasMaxLength(10);
 
-                entity.Property(e => e.Password).HasMaxLength(100);
+                entity.Property(e => e.Password).HasMaxLength(10);
 
-                entity.Property(e => e.Role).HasMaxLength(100);
+                entity.Property(e => e.Role).HasMaxLength(10);
             });
 
             modelBuilder.Entity<Userlibrary>(entity =>
             {
                 entity.ToTable("userlibrary");
 
-                entity.Property(e => e.Book)
-                    .HasMaxLength(100)
-                    .HasColumnName("book");
+              
 
-                entity.Property(e => e.CapterId)
-                    .HasMaxLength(100)
-                    .HasColumnName("capterId");
+                
 
-                entity.Property(e => e.User)
-                    .HasMaxLength(100)
-                    .HasColumnName("user");
+               
             });
 
             OnModelCreatingPartial(modelBuilder);

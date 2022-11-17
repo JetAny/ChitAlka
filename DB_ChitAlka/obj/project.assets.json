@@ -751,11 +751,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My C#\\Диплом\\ChitAlka\\DB_ChitAlka\\DB_ChitAlka.csproj",
+      "projectUniqueName": "D:\\My C#\\Chitalka\\ChitAlka\\DB_ChitAlka\\DB_ChitAlka.csproj",
       "projectName": "DB_ChitAlka",
-      "projectPath": "D:\\My C#\\Диплом\\ChitAlka\\DB_ChitAlka\\DB_ChitAlka.csproj",
+      "projectPath": "D:\\My C#\\Chitalka\\ChitAlka\\DB_ChitAlka\\DB_ChitAlka.csproj",
       "packagesPath": "C:\\Users\\andrei\\.nuget\\packages\\",
-      "outputPath": "D:\\My C#\\Диплом\\ChitAlka\\DB_ChitAlka\\obj\\",
+      "outputPath": "D:\\My C#\\Chitalka\\ChitAlka\\DB_ChitAlka\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

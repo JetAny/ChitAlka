@@ -11,7 +11,7 @@ namespace DB_ChitAlka.Interfases
     {
         DbSet<Author> Authors { get; set; }
         DbSet<Book> Books { get; set; }
-        DbSet<Capter> Capters { get; set; }
+        DbSet<Section> Sections { get; set; }
         DbSet<User> Users { get; set; } 
         DbSet<Userlibrary> Userlibraries { get; set; } 
 

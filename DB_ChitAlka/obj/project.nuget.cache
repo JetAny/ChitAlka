@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wxn0WgAb51cvTTjcf1MY7QkO6y8Z5ixOZ0vN+b3C+kaOdA8yqCAjsw0pZIW/KqncN42JHWtDvuT6bOGAVSS6Mg==",
+  "dgSpecHash": "LEGHEhIZErQsUFxleoAtoJK485gTyzP+JkdMJP8v9NoAD6PiKkPiGyJy5X1J45l5xdlrGOKbGuCESLlL0tZZ5A==",
   "success": true,
-  "projectFilePath": "D:\\My C#\\Диплом\\ChitAlka\\DB_ChitAlka\\DB_ChitAlka.csproj",
+  "projectFilePath": "D:\\My C#\\Chitalka\\ChitAlka\\DB_ChitAlka\\DB_ChitAlka.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andrei\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\andrei\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.7\\microsoft.entityframeworkcore.6.0.7.nupkg.sha512",

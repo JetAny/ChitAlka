@@ -1,5 +1,7 @@
 using DB_ChitAlka;
 using DB_ChitAlka.Interfases;
+using MVC_ChitAlka.Intrfaces;
+using MVC_ChitAlka.Servises;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IDbContext, dbchitalcaContext>();
 
-
-
+builder.Services.AddScoped<IGetAllBooksService, GetAllBooksService>();
+builder.Services.AddScoped<IGetBookService, GetBookService>();
+builder.Services.AddScoped<IGetSectionBookService, GetSectionBookService>();
+builder.Services.AddScoped< IAddBookService, AddBookService>();
+builder.Services.AddScoped<ISearchBookService, SearchBookService>();
 
 
 
