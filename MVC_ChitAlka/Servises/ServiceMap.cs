@@ -17,7 +17,7 @@ namespace MVC_ChitAlka.Servises
 
                 List<BookModel> allBooks = new List<BookModel>();
 
-                foreach (Book bookmodel in model.BookId)
+                foreach (Book bookmodel in model.Book)
                 {
                     var book = new BookModel();
                     book.Id = bookmodel.Id;
@@ -59,8 +59,8 @@ namespace MVC_ChitAlka.Servises
                         section.Add(sectionmodel);
                     }
                     book.SectionModel = section;
-                    author.FirstName = bookmodel.AuthorId.FirstName;
-                    author.LastName = bookmodel.AuthorId.LastName;
+                    author.FirstName = bookmodel.Author.FirstName;
+                    author.LastName = bookmodel.Author.LastName;
                     book.AuthorModel = author;
                 }
             }
@@ -68,6 +68,7 @@ namespace MVC_ChitAlka.Servises
         }
         internal List<SectionModel> MapDbSection(List<Book> bookDB, int bookId, int sectionID)
         {
+            var st = 0;
             var book = new BookModel();
             List<SectionModel> actualSection = new List<SectionModel>();
             foreach (Book bookmodel in bookDB)
@@ -76,11 +77,22 @@ namespace MVC_ChitAlka.Servises
                 {
                     foreach (Section s in bookmodel.Section)
                     {
+                        st=st+1;
                         var sectionmodel = new SectionModel();
-                        if(s.Id == sectionID)
+                       
+                        sectionmodel.Id = st;
+                        sectionmodel.Title = s.Title;
+                        sectionmodel.Text = s.Text;
+                        sectionmodel.BookModelId=bookmodel.Id;
+                        if (st == sectionID)
                         {
                             actualSection.Add(sectionmodel);
+                            return actualSection;
                         }
+                    }
+                    if (actualSection.Count == 0)
+                    {
+                        return actualSection;
                     }
 
                 }

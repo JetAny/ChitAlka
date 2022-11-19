@@ -14,7 +14,7 @@ namespace MVC_ChitAlka.Servises
         public List<AuthorModel> GetAll()
         {
             var allAuthorDB = _dbContext.Authors
-                .Include(u => u.BookId)
+                .Include(u => u.Book)
                 .ToList();
             ServiceMap _serviceMap = new ServiceMap();
             var getAllAuthors = _serviceMap.MapDbModel(allAuthorDB);

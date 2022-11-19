@@ -31,7 +31,7 @@ namespace DB_ChitAlka
 //                You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see
 //                    https://go.microsoft.com/fwlink/?linkid=2131148.
                           //For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySql("server=localhost;database=dbchitalca20;uid=root;pwd=Tucha0425#", Microsoft.EntityFrameworkCore. ServerVersion.Parse("8.0.30-mysql"));
+                optionsBuilder.UseMySql("server=localhost;database=dbchitalca30;uid=root;pwd=Tucha0425#", Microsoft.EntityFrameworkCore. ServerVersion.Parse("8.0.30-mysql"));
             }
         }
 

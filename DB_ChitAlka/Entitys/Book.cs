@@ -10,7 +10,7 @@ namespace DB_ChitAlka
         public string Annotation { get; set; } = null!;
         public string? Genre { get; set; }
         public string? BookImage { get; set; }
-        //public List<Section>? Section { get; set; }
-        public int? AuthorId { get; set; }
+        public List<Section>? Section { get; set; }
+        public Author? Author { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using DB_ChitAlka;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MVC_ChitAlka.Intrfaces;
 using System.Dynamic;
 
@@ -64,24 +63,29 @@ namespace MVC_ChitAlka.Controllers
             dynamic mymodel = new ExpandoObject();
             mymodel.Author = _getAllBooksService.GetAll();
             return View("Library", mymodel);
-            
+
         }
+
         [Route("Login/BookPage")]
         [HttpGet]
         public IActionResult BookPage(int BookId)
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.Book = _getBookService.GetBook(BookId);
-            
-            return View("BookPage",mymodel);
+
+            return View("BookPage", mymodel);
         }
+
         [Route("Login/ReadBook")]
         [HttpGet]
         public IActionResult ReadBook(int bookId, int secId)
         {
-            dynamic mymodel = new ExpandoObject();
-            mymodel.Section= _getSectionBookService.GetSection(bookId,secId);
-             return View("ReadBook", mymodel);
+            var section = _getSectionBookService.GetSection(bookId, secId);
+            if(section.Count == 0)
+            {
+                return LocalRedirect("~/Login/BookPage/?BookId="+bookId);
+            }
+            return View("ReadBook", section);
         }
     }
 }

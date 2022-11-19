@@ -6,17 +6,28 @@
     <title>ReadBook</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
-  @model dynamic
+ @* @model dynamic*@
+  @model List<SectionModel>
   <body>
     <div class="container  border">
       <div class="row border btn-light disabled">
-
+          @foreach (var item in Model)
+          {
               <div class="col-12 text-center ">
-                @Model.Section.Title
+                @item.Id
               </div> 
-              <div class="col-12">
-                 @Model.Section.Text
-              </div>            
+              <div class="col-12 text-center ">
+                @item.Title
+              </div> 
+              <div class="col-12 text-center ">
+                @item.Text
+              </div> 
+              <div class="col-4 text-center ">
+                 <div class="btn-group">                 
+                  <a href="~/Login/ReadBook/?bookId=@item.BookModelId&secId=@(item.Id-1)" class="btn btn-light">Назад</a>
+                  <a href="~/Login/ReadBook/?bookId=@item.BookModelId&secId=@(item.Id+1)" class="btn btn-light">Вперед</a>
+                 </div>
+              </div>
           }
       </div>
     </div> 

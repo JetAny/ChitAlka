@@ -64,9 +64,9 @@ namespace MVC_ChitAlka.Servises
             book.Section = sections;
             author.FirstName = authorFirstNameXML;
             author.LastName = authorLastNameXml;
-            book.AuthorId = author;
-            book.AuthorId.FirstName = authorFirstNameXML;
-            book.AuthorId.LastName = authorLastNameXml;
+            book.Author = author;
+            book.Author.FirstName = authorFirstNameXML;
+            book.Author.LastName = authorLastNameXml;
             return book;
         }
     }
