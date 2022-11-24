@@ -36,7 +36,7 @@ namespace MVC_ChitAlka.Controllers
         }
         [Route("Login/AddBook")]
         [HttpPost]
-        public async Task<ActionResult> AddBook(IFormFile file)
+        public  ActionResult AddBook(IFormFile file)
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.Book = _getAddBookService.AddBook(file);
@@ -44,7 +44,7 @@ namespace MVC_ChitAlka.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Search(string valueBook) //поиск книги
+        public  IActionResult Search(string valueBook) //поиск книги
         {
             dynamic mymodel = new ExpandoObject();
             var searchBook = _searchBookService.SearchBook(valueBook);

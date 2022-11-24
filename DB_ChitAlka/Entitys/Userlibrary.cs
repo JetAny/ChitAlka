@@ -7,6 +7,8 @@ namespace DB_ChitAlka
     public partial class Userlibrary
     {
         public int Id { get; set; }
+        public User UserId { get; set; }
+        public List<Book> Books { get; set; }
 
         //public User? UserId { get; set; }
         //[NotMapped]

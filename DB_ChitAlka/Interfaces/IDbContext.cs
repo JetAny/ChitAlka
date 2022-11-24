@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DB_ChitAlka.Entitys;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace DB_ChitAlka.Interfases
 {
@@ -12,7 +9,8 @@ namespace DB_ChitAlka.Interfases
         DbSet<Author> Authors { get; set; }
         DbSet<Book> Books { get; set; }
         DbSet<Section> Sections { get; set; }
-        DbSet<User> Users { get; set; } 
+        DbSet<User> Users { get; set; }
+        DbSet<Role> Roles { get; set; }
         DbSet<Userlibrary> Userlibraries { get; set; } 
 
         int SaveChanges();

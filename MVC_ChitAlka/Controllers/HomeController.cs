@@ -26,7 +26,7 @@ namespace MVC_ChitAlka.Controllers
             mymodel.isAuthor = true;
             return View(mymodel);
         }
-        public async Task<IActionResult> GetAllBooks()
+        public IActionResult GetAllBooks()
         {
              dynamic mymodel = new ExpandoObject();
             mymodel.Author = _getAllBooksService.GetAll();

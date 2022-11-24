@@ -81,8 +81,8 @@ namespace DB_ChitAlka.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("BookId")
-                        .HasColumnType("int");
+                    //b.Property<int?>("BookId")
+                    //    .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .HasMaxLength(20000)
