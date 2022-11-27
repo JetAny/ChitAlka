@@ -61,7 +61,7 @@ namespace MVC_ChitAlka.Servises
             book.Genre = genreXML;
             book.BookTitle = sequenceNameXML;
             book.Annotation = annotationXML;
-            book.Section = sections;
+            book.Sections = sections;
             author.FirstName = authorFirstNameXML;
             author.LastName = authorLastNameXml;
             book.Author = author;

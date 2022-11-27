@@ -22,7 +22,9 @@
                 <li class="list-group-item">A third item</li>
               </ul>
               <div class="card-body">
-                <a href="~/Login/ReadBook/?bookId=@Model.Book.Id&secId=1" class="card-link">Читать</a>
+                <a href="~/Login/ReadBook/?bookId=@Model.Book.Id&fl=@true" class="card-link">Читать</a> 
+              </div>
+              <div class="card-body">
                 <a href="~/Login/Library" class="card-link">Назад</a>
               </div>
             </div>

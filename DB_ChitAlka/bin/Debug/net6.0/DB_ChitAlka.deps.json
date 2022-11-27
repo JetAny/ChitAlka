@@ -10,19 +10,10 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.4",
-          "Microsoft.EntityFrameworkCore.Tools": "6.0.4",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.2"
         },
         "runtime": {
           "DB_ChitAlka.dll": {}
-        }
-      },
-      "Humanizer.Core/2.8.26": {
-        "runtime": {
-          "lib/netstandard2.0/Humanizer.dll": {
-            "assemblyVersion": "2.8.0.0",
-            "fileVersion": "2.8.26.1919"
-          }
         }
       },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
@@ -266,18 +257,6 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/6.0.7": {},
-      "Microsoft.EntityFrameworkCore.Design/6.0.4": {
-        "dependencies": {
-          "Humanizer.Core": "2.8.26",
-          "Microsoft.EntityFrameworkCore.Relational": "6.0.7"
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {
-            "assemblyVersion": "6.0.4.0",
-            "fileVersion": "6.0.422.16106"
-          }
-        }
-      },
       "Microsoft.EntityFrameworkCore.Relational/6.0.7": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.7",
@@ -288,11 +267,6 @@
             "assemblyVersion": "6.0.7.0",
             "fileVersion": "6.0.722.31501"
           }
-        }
-      },
-      "Microsoft.EntityFrameworkCore.Tools/6.0.4": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "6.0.4"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
@@ -585,13 +559,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Humanizer.Core/2.8.26": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
-      "path": "humanizer.core/2.8.26",
-      "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -732,26 +699,12 @@
       "path": "microsoft.entityframeworkcore.analyzers/6.0.7",
       "hashPath": "microsoft.entityframeworkcore.analyzers.6.0.7.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Design/6.0.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-NOAtatJPq/xDa+vqfxL5+OwCKv83N/JX/IPgY6VQZ95KUtV9uuC+mVPsremG3a9UM3tPfK4CXMh1rwiaZHYCPQ==",
-      "path": "microsoft.entityframeworkcore.design/6.0.4",
-      "hashPath": "microsoft.entityframeworkcore.design.6.0.4.nupkg.sha512"
-    },
     "Microsoft.EntityFrameworkCore.Relational/6.0.7": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-0uo4fPDHutMbd9AJJEKl2q/2fYuFGA8tEBE2fQeQFaNDd+F/aUjaXc1FUD84J7Wcax8WP40rZo1E0u9A0yPPZw==",
       "path": "microsoft.entityframeworkcore.relational/6.0.7",
       "hashPath": "microsoft.entityframeworkcore.relational.6.0.7.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Tools/6.0.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-6uAir6kFgkZoM2xsmNxs3WhK03xN37u4fW44X8cAXzllkG4txMajbkYhT0jSh4D+YrnfdNCq3K8ol3MyCCGEug==",
-      "path": "microsoft.entityframeworkcore.tools/6.0.4",
-      "hashPath": "microsoft.entityframeworkcore.tools.6.0.4.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
       "type": "package",

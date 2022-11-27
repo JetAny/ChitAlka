@@ -1,6 +1,4 @@
-﻿using DB_ChitAlka;
-
-namespace MVC_ChitAlka.Intrfaces
+﻿namespace MVC_ChitAlka.Intrfaces
 {
     public interface ISearchBookService
     {

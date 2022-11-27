@@ -50,7 +50,7 @@ namespace MVC_ChitAlka.Servises
                     book.Genre = bookmodel.Genre;
                     book.Description = bookmodel.Annotation;
                     book.BookImage = bookmodel.BookImage;
-                    foreach (Section s in bookmodel.Section)
+                    foreach (Section s in bookmodel.Sections)
                     {
                         var sectionmodel = new SectionModel();
                         sectionmodel.Id = s.Id;
@@ -59,8 +59,8 @@ namespace MVC_ChitAlka.Servises
                         section.Add(sectionmodel);
                     }
                     book.SectionModel = section;
-                    author.FirstName = bookmodel.Author.FirstName;
-                    author.LastName = bookmodel.Author.LastName;
+                    //author.FirstName = bookmodel.Author.FirstName;
+                    //author.LastName = bookmodel.Author.LastName;
                     book.AuthorModel = author;
                 }
             }
@@ -75,17 +75,21 @@ namespace MVC_ChitAlka.Servises
             {
                 if (bookmodel.Id == bookId)
                 {
-                    foreach (Section s in bookmodel.Section)
+                    //var returnedSection = bookmodel.Sections[0];
+                    //var st = returnedSection.Id;
+                    foreach (Section s in bookmodel.Sections)
                     {
-                        st=st+1;
+                        st = st + 1;
                         var sectionmodel = new SectionModel();
-                       
-                        sectionmodel.Id = st;
-                        sectionmodel.Title = s.Title;
-                        sectionmodel.Text = s.Text;
-                        sectionmodel.BookModelId=bookmodel.Id;
-                        if (st == sectionID)
+                        sectionmodel.Id = s.Id;
+
+
+                        if (s.Id == sectionID)
                         {
+                            sectionmodel.Title = s.Title;
+                            sectionmodel.Text = s.Text;
+                            sectionmodel.BookModelId = bookmodel.Id;
+                            sectionmodel.Counter = st;
                             actualSection.Add(sectionmodel);
                             return actualSection;
                         }
@@ -94,9 +98,8 @@ namespace MVC_ChitAlka.Servises
                     {
                         return actualSection;
                     }
-
                 }
-            }           
+            }
             return actualSection;
         }
 

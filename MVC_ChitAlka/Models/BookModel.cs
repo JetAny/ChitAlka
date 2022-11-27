@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MVC_ChitAlka
+﻿namespace MVC_ChitAlka
 {
     public partial class BookModel
     {

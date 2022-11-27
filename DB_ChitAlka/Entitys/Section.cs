@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DB_ChitAlka
+﻿namespace DB_ChitAlka
 {
     public partial class Section
     {

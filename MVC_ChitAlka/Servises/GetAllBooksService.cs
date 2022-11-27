@@ -1,13 +1,14 @@
-﻿using DB_ChitAlka.Interfases;
+﻿
 using Microsoft.EntityFrameworkCore;
 using MVC_ChitAlka.Intrfaces;
+using DB_ChitAlka.Areas.Identity.Data;
 
 namespace MVC_ChitAlka.Servises
 {
     public class GetAllBooksService : IGetAllBooksService
     {
-        private readonly IDbContext _dbContext;
-        public GetAllBooksService(IDbContext dbContext)
+        private readonly MyDbContext _dbContext;
+        public GetAllBooksService(MyDbContext dbContext)
         {
             _dbContext = dbContext;
         }

@@ -1,14 +1,14 @@
 ﻿using DB_ChitAlka;
-using DB_ChitAlka.Interfases;
+using DB_ChitAlka.Areas.Identity.Data;
 using MVC_ChitAlka.Intrfaces;
 
 namespace MVC_ChitAlka.Servises
 {
     public class AddBookService : IAddBookService
     {
-        private readonly IDbContext _dbContext;
+        private readonly MyDbContext _dbContext;
 
-        public AddBookService(IDbContext dbContext)
+        public AddBookService(MyDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -17,6 +17,7 @@ namespace MVC_ChitAlka.Servises
 
         public async Task<Book> AddBook(IFormFile file)
         {
+            //добавить провеку на null
             using (Stream uploadFileStream = file.OpenReadStream())
             {
 

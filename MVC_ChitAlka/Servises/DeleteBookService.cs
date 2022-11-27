@@ -1,45 +1,36 @@
-﻿using DB_ChitAlka;
-using DB_ChitAlka.Interfases;
-using Microsoft.EntityFrameworkCore;
+﻿using DB_ChitAlka.Areas.Identity.Data;
 using MVC_ChitAlka.Intrfaces;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace MVC_ChitAlka.Servises
 {
     public class DeleteBookService : IDeleteBookService
     {
-        private readonly IDbContext _dbContext;
+        private readonly MyDbContext _dbContext;
 
-        public DeleteBookService(IDbContext dbContext)
+        public DeleteBookService(MyDbContext dbContext)
         {
             _dbContext = dbContext;
         }
         public void BookDelete(int bookDelete)
         {
-            var BookDB = _dbContext.Books   
-                    .Include(u => u.Section)
-                    .ToList();
-            //var book=BookDB(bookDelete);
-
+            var author = _dbContext.Authors
+                                .Include(u => u.Book)
+                                .First(p => p.Id == bookDelete);
             var book = _dbContext.Books
-                    .First(p => p.Id == bookDelete);
-            var author=book.Author;
-           
-            //var autor=_dbContext.Books.First(e=>e.Author.Book== book);
+                     .Include(u => u.Sections)
+                     .First(p => p.Id == bookDelete);
 
-            //var countSection = _dbContext.Sections.ToList();
-            //foreach (var section in book.Section)
-            //{
-            //    if (section.BookId == bookDelete)
-            //    {
-            //        _dbContext.Sections.Remove(section);
+            
+            foreach(var section in book.Sections)
+            {
+                _dbContext.Sections.Remove(section);
+            }
 
-            //    }
-            //}
-           //var sections=_dbContext.Sections.First(p=>p.Id==book.Id);
+            _dbContext.Authors.Remove(author);
             _dbContext.Books.Remove(book);
-
             _dbContext.SaveChanges();
+
         }
     }
 }

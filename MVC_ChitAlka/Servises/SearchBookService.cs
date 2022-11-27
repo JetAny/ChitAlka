@@ -1,14 +1,13 @@
-﻿using DB_ChitAlka;
-using DB_ChitAlka.Interfases;
-using Microsoft.EntityFrameworkCore;
+﻿using DB_ChitAlka.Areas.Identity.Data;
 using MVC_ChitAlka.Intrfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace MVC_ChitAlka.Servises
 {
     public class SearchBookService : ISearchBookService
     {
-        private readonly IDbContext _dbContext;
-        public SearchBookService(IDbContext dbContext)
+        private readonly MyDbContext _dbContext;
+        public SearchBookService(MyDbContext dbContext)
         {
             _dbContext = dbContext;
         }

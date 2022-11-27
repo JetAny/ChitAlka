@@ -14,7 +14,7 @@
           @foreach (var item in Model)
           {
               <div class="col-12 text-center ">
-                @item.Id
+                @item.Counter
               </div> 
               <div class="col-12 text-center ">
                 @item.Title
@@ -23,10 +23,13 @@
                 @item.Text
               </div> 
               <div class="col-4 text-center ">
-                 <div class="btn-group">                 
-                  <a href="~/Login/ReadBook/?bookId=@item.BookModelId&secId=@(item.Id-1)" class="btn btn-light">Назад</a>
-                  <a href="~/Login/ReadBook/?bookId=@item.BookModelId&secId=@(item.Id+1)" class="btn btn-light">Вперед</a>
-                 </div>
+                 <div class="btn-group">    
+ 
+                  <a href="~/Login/ReadBook/?bookId=@item.BookModelId&fl=@false" class="btn btn-light">Назад</a>
+
+                  <a href="~/Login/ReadBook/?bookId=@item.BookModelId&fl=@true" class="btn btn-light">Вперед</a>
+
+               </div>
               </div>
           }
       </div>
