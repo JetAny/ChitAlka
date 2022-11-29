@@ -1,5 +1,6 @@
 ﻿using DB_ChitAlka;
 using DB_ChitAlka.Areas.Identity.Data;
+using Microsoft.EntityFrameworkCore;
 using MVC_ChitAlka.Intrfaces;
 
 namespace MVC_ChitAlka.Servises
@@ -17,14 +18,10 @@ namespace MVC_ChitAlka.Servises
 
         public async Task<Book> AddBook(IFormFile file)
         {
-            //добавить провеку на null
             using (Stream uploadFileStream = file.OpenReadStream())
             {
 
                 string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".fb2"; // имя файла в Темп
-
-                //string fileName = "D:/Books/BooksFb2/tst/test3.fb2";
-                //var a = uploadFileStream.ReadByte();
 
                 await using (FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
                 {
@@ -33,15 +30,29 @@ namespace MVC_ChitAlka.Servises
                 }
                 var pars = new Fb2Parser(fileName);
                 book = pars.Parse();
-                try
+
+
+                var allBook = _dbContext.Books.Include(x => x.Author).ToList();
+                foreach (var bookLib in allBook)
                 {
-                    _dbContext.Books.Add(book);
-                    _dbContext.SaveChanges();
-                }
-                catch
-                {
-                    _dbContext.Books.Remove(book);
-                    throw;
+                    if (bookLib.BookTitle == book.BookTitle || bookLib.Author == book.Author)
+                    {
+
+                        _dbContext.Books.Remove(book);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            _dbContext.Books.Add(book);
+                            _dbContext.SaveChanges();
+                        }
+                        catch
+                        {
+                            _dbContext.Books.Remove(book);
+                            throw;
+                        }
+                    }
                 }
             }
             return book;

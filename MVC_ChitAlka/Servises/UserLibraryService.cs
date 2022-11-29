@@ -22,8 +22,6 @@ namespace MVC_ChitAlka.Servises
             _dbContext = dbContext;
         }
 
-        //public ClaimsPrincipal User { get; private set; }
-
         public async Task<int> GetUserBook(User currentUser, int bookId, bool fl)
         {
             //User currentUser = await _userManager.GetUserAsync(User)
@@ -109,7 +107,6 @@ namespace MVC_ChitAlka.Servises
 
             return section1;
         }
-
 
         public List<AuthorModel> GetUserLibrary(User user)
         {

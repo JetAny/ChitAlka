@@ -33,7 +33,6 @@ namespace MVC_ChitAlka.Servises
                 allAuthors.Add(author);
             }
             return allAuthors;
-
         }
         public BookModel MapDbBook(List<Book> BookDB, int Id)
         {
@@ -101,7 +100,5 @@ namespace MVC_ChitAlka.Servises
             }
             return actualSection;
         }
-
-
     }
 }

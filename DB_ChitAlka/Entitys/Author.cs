@@ -6,6 +6,5 @@
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public List<Book> Book { get; set; }
-        //public virtual ICollection<Book> Books { get; set; }
     }
 }
