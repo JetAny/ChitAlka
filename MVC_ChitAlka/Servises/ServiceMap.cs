@@ -44,6 +44,8 @@ namespace MVC_ChitAlka.Servises
             {
                 if (bookmodel.Id == Id)
                 {
+                    author.FirstName = bookmodel.Author.FirstName;
+                    author.LastName=bookmodel.Author.LastName;
                     book.AuthorModel = author;
                     book.Id = bookmodel.Id;
                     book.Name = bookmodel.BookTitle;
@@ -58,10 +60,7 @@ namespace MVC_ChitAlka.Servises
                         sectionmodel.Text = s.Text;
                         section.Add(sectionmodel);
                     }
-                    book.SectionModel = section;
-                    //author.FirstName = bookmodel.Author.FirstName;
-                    //author.LastName = bookmodel.Author.LastName;
-                    book.AuthorModel = author;
+                    book.SectionModel = section;                   
                 }
             }
             return book;

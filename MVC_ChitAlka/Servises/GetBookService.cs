@@ -17,6 +17,7 @@ namespace MVC_ChitAlka.Servises
         {
             var BookDB = _dbContext.Books
                 .Include(u => u.Sections)
+                .Include(a=>a.Author)
                 .ToList();
             ServiceMap _serviceMap = new ServiceMap();
             var getBook = _serviceMap.MapDbBook(BookDB, bookId);

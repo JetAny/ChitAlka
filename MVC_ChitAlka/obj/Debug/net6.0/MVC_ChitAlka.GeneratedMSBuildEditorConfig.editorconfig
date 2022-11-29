@@ -55,28 +55,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Login/AddBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQWRkQm9vay5jc2h0bWw=
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/AddBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxBZGRCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Login/BookPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQm9va1BhZ2UuY3NodG1s
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/BookPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxCb29rUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Login/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Login/Library.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTGlicmFyeS5jc2h0bWw=
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/Library.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxMaWJyYXJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Login/ReadBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVhZEJvb2suY3NodG1s
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/ReadBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxSZWFkQm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Login/Search.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2VhcmNoLmNzaHRtbA==
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Secured/Index.cshtml]
@@ -95,8 +95,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/User/CreateUserLib.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVVc2VyTGliLmNzaHRtbA==
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/User/UserLib.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyTGliLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/_ViewImports.cshtml]

@@ -1,9 +1,9 @@
-﻿using DB_ChitAlka;
-using DB_ChitAlka.Areas.Identity.Data;
-using MVC_ChitAlka.Servises;
+﻿using DB_ChitAlka.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using MVC_ChitAlka.Intrfaces;
+using System.Dynamic;
 
 namespace MVC_ChitAlka.Controllers
 {
@@ -11,77 +11,50 @@ namespace MVC_ChitAlka.Controllers
     {
         private readonly MyDbContext _dbContext;
         private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-        
-        public UserController(
+        private readonly IUserLibraryService _userLibraryService;
+        private readonly IDeleteBookService _deleteBookService;
+
+        public UserController(MyDbContext dbContext,
             UserManager<User> userManager,
-            SignInManager<User> signInManager,
-            MyDbContext dbContext)
+            IUserLibraryService userLibraryService,
+            IDeleteBookService deleteBookService
+            )
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
             _dbContext = dbContext;
-          
+            _userManager = userManager;
+            _userLibraryService = userLibraryService;
+            _deleteBookService = deleteBookService;
         }
 
 
-        [Route("User/CreateUserLib")]
-        public async Task<IActionResult> CreateUserLib(int bookId)
+        [Authorize]
+        [Route("User/UserLib")]
+        [HttpGet]
+        public async Task<IActionResult> UserLib()
         {
-
-
             User currentUser = await GetCurrentUserAsync();
-            var user = await _userManager.FindByIdAsync(currentUser.Id);
-            var currentUserLib = user.Userlibrary;
-            
-            var name = currentUser.NickName;
+            //var user = await _userManager.FindByIdAsync(currentUser.Id);
 
-
-            if (currentUserLib == null)
-            {
-                currentUserLib = new List<Userlibrary>();
-
-            }
-            else
-            {
-                var bookRead = _dbContext.Books
-                                      .Include(u => u.Sections)
-                                       .First(p => p.Id == bookId);
-
-                foreach (var library in currentUserLib)
-                {
-                    if (library.Book.Id == bookId)
-                    {
-
-                        Section caurrentSection = _dbContext.Sections
-                            .Include(x => x.Id == library.CurentSectionId)
-                            .First();
-
-                        return RedirectToActionPermanent("ReadBook", "Login", new
-                        {
-                            BookId = bookId,
-                            secId = caurrentSection
-                        });
-                    }
-                }
-            }
-            var userLib = new Userlibrary();
-            var book = _dbContext.Books
-                     .Include(u => u.Sections)
-                     .First(p => p.Id == bookId);
-            var sec = book.Sections[0];
-
-            userLib.Book = book;
-            currentUserLib.Add(userLib);
-            currentUser.Userlibrary = currentUserLib;
-
-            _dbContext.Users.Update(currentUser);
-            _dbContext.SaveChanges();
-
-            return RedirectToActionPermanent("ReadBook", "Login", new { BookId = bookId, secId = sec });
+            dynamic mymodel = new ExpandoObject();
+            mymodel.Author = _userLibraryService.GetUserLibrary(currentUser);
+            return View("UserLib", mymodel);
         }
+
+        [Authorize]
+        [Route("User/UserBookDelete")]
+        [HttpGet]
+        public async Task<IActionResult> UserBookDelete(int BookId)
+        {
+            User currentUser = await GetCurrentUserAsync();            
+            _deleteBookService.UserBookDelete(currentUser, BookId);
+
+            dynamic mymodel = new ExpandoObject();
+            mymodel.Author = _userLibraryService.GetUserLibrary(currentUser);
+            return View("UserLib", mymodel);
+
+        }
+
 
         private Task<User> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
-
     }
 }
