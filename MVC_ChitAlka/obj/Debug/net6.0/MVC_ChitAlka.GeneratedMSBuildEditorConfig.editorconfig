@@ -1,0 +1,108 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MVC_ChitAlka
+build_property.RootNamespace = MVC_ChitAlka
+build_property.ProjectDir = D:\My C#\Chitalka\ChitAlka\MVC_ChitAlka\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\My C#\Chitalka\ChitAlka\MVC_ChitAlka
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Home/GetAllBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRBbGxCb29rcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/AddBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxBZGRCb29rLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/BookPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxCb29rUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/Library.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxMaWJyYXJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/ReadBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxSZWFkQm9vay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Library/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/User/UserLib.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyTGliLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My C\#/Chitalka/ChitAlka/MVC_ChitAlka/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-qysclu9p8o
