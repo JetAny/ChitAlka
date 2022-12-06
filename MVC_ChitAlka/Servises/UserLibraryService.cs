@@ -22,50 +22,51 @@ namespace MVC_ChitAlka.Servises
             _dbContext = dbContext;
         }
 
-        public async Task<int> GetUserBook(User currentUser, int bookId, bool fl)
+        public Section GetUserBook(User currentUser, int bookId, int fl)
         {
-            //User currentUser = await _userManager.GetUserAsync(User)
-            //var user = await _userManager.FindByIdAsync(currentUser.Id);
             var currentUserLib = currentUser.Userlibrary;
-
+            Section currentSection = new Section();
             if (currentUserLib.Count == 0)
             {
                 currentUserLib = new List<Userlibrary>();
             }
             else
             {
-                int section;
                 var userLib1 = new Userlibrary();
                 var book1 = _dbContext.Books
                          .Include(u => u.Sections)
                          .First(p => p.Id == bookId);
-                var st = book1.Sections[0];
 
+                var st = book1.Sections[0];
+                var d = book1.Sections.Count();
+                if ((fl < st.Id) | fl == (d + st.Id))
+                {
+                    if (fl != -1)
+                    {
+                        currentSection = null;
+                        return currentSection;
+                    }
+                   
+                }
                 foreach (var lib in currentUserLib)
                 {
                     if (lib.Book == book1)
                     {
-                        if (fl == true)
+                        if (fl != -1)
                         {
-                            var sm = st.Id - 1;
-                            lib.CurentSectionId = lib.CurentSectionId + 1;
-                            section = lib.CurentSectionId;
-                            if (section > book1.Sections.Count + sm)
-                            {
-                                lib.CurentSectionId = st.Id;
-                                section = -1;
-                            }
+                            var sm = fl - st.Id;
+                            currentSection = book1.Sections[sm];
+
                         }
                         else
                         {
-                            var sm = st.Id - 1;
-                            lib.CurentSectionId = lib.CurentSectionId - 1;
-                            section = lib.CurentSectionId;
-                            if (section == sm)
-                            {
-                                section = -1;
-                            }
+                            var sec = lib.CurentSectionId;
+                            currentSection = book1.Sections[sec - st.Id];
+
                         }
+
+                        lib.CurentSectionId = currentSection.Id;
+
                         try
                         {
                             _dbContext.Userlibraries.Update(lib);
@@ -76,7 +77,8 @@ namespace MVC_ChitAlka.Servises
                             _dbContext.Users.Remove(currentUser);
                             throw;
                         }
-                        return section;
+
+                        return currentSection;
                     }
                 }
             }
@@ -85,10 +87,12 @@ namespace MVC_ChitAlka.Servises
             var book = _dbContext.Books
                      .Include(u => u.Sections)
                      .First(p => p.Id == bookId);
-            var sec = book.Sections[0];
-            var section1 = sec.Id;
-            userLib.CurentSectionId = sec.Id;
+
+            currentSection = book.Sections[0];
+
+            userLib.CurentSectionId = currentSection.Id;
             userLib.Book = book;
+
 
             currentUserLib.Add(userLib);
             currentUser.Userlibrary = currentUserLib;
@@ -105,7 +109,7 @@ namespace MVC_ChitAlka.Servises
                 throw;
             }
 
-            return section1;
+            return currentSection;
         }
 
         public List<AuthorModel> GetUserLibrary(User user)

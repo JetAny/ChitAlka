@@ -20,7 +20,8 @@ namespace MVC_ChitAlka.Servises
             List<Section> sections = new List<Section>();
 
             var xml = new XmlDocument();
-            xml.LoadXml(File.ReadAllText(_path));
+            var test = File.ReadAllText(_path);
+            xml.LoadXml(test);
             var namePref = new XmlNamespaceManager(xml.NameTable);
             namePref.AddNamespace("ns", "http://www.gribuser.ru/xml/fictionbook/2.0");
             var descriptionXML = xml.SelectSingleNode("//ns:description", namePref);
@@ -32,9 +33,9 @@ namespace MVC_ChitAlka.Servises
             var authorLastNameXml = authorXML.SelectSingleNode("descendant::ns:last-name", namePref).InnerText;
             var bookTitleHml = titleInfoXML.SelectSingleNode("descendant::ns:book-title", namePref).InnerText;
             var annotationXML = titleInfoXML.SelectSingleNode("descendant::ns:annotation", namePref).InnerText;
-            var sequenceXML = titleInfoXML.SelectSingleNode("descendant::ns:sequence", namePref);
-            var sequenceNameXML = sequenceXML.Attributes.GetNamedItem("name").InnerText;
-
+            //var sequenceXML = titleInfoXML.SelectSingleNode("descendant::ns:sequence", namePref);
+            //var sequenceNameXML = sequenceXML.Attributes.GetNamedItem("name").InnerText;
+            var binaryXML = xml.SelectSingleNode("//ns:binary", namePref).InnerText;
             var documentinfoXML = descriptionXML.SelectSingleNode("//ns:document-info", namePref);
             var bookIdXML = documentinfoXML.SelectNodes("descendant::ns:id", namePref);
 
@@ -75,6 +76,7 @@ namespace MVC_ChitAlka.Servises
             book.BookTitle = bookTitleHml;
             book.Annotation = annotationXML;
             book.Sections = sections;
+            book.BookImage = binaryXML;
 
             author.FirstName = authorFirstNameXML;
             author.LastName = authorLastNameXml;

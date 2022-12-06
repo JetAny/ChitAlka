@@ -25,7 +25,7 @@ namespace MVC_ChitAlka.Servises
 
                 await using (FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
                 {
-                    uploadFileStream.Seek(3, SeekOrigin.Begin);
+                    uploadFileStream.Seek(0, SeekOrigin.Begin);
                     uploadFileStream.CopyTo(fileStream);
                 }
                 var pars = new Fb2Parser(fileName);
@@ -33,19 +33,35 @@ namespace MVC_ChitAlka.Servises
 
 
                 var allBook = _dbContext.Books.Include(x => x.Author).ToList();
+
+                if (allBook.Count == 0)
+                {
+                    try
+                    {
+                        _dbContext.Books.Add(book);
+                        _dbContext.SaveChanges();
+                    }
+                    catch
+                    {
+                        _dbContext.Books.Remove(book);
+                        throw;
+                    }
+                }
+
                 foreach (var bookLib in allBook)
                 {
                     if (bookLib.BookTitle == book.BookTitle || bookLib.Author == book.Author)
                     {
 
                         _dbContext.Books.Remove(book);
+
                     }
                     else
                     {
                         try
                         {
                             _dbContext.Books.Add(book);
-                            _dbContext.SaveChanges();
+                           
                         }
                         catch
                         {
@@ -54,6 +70,7 @@ namespace MVC_ChitAlka.Servises
                         }
                     }
                 }
+                _dbContext.SaveChanges();
             }
             return book;
         }

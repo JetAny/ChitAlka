@@ -1,5 +1,4 @@
-﻿using DB_ChitAlka;
-using DB_ChitAlka.Areas.Identity.Data;
+﻿using DB_ChitAlka.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using MVC_ChitAlka.Intrfaces;
 
@@ -15,17 +14,28 @@ namespace MVC_ChitAlka.Servises
         }
         public void BookDelete(int bookDelete)
         {
-            var author = _dbContext.Authors
-                                .Include(u => u.Book)
-                                .First(p => p.Id == bookDelete);
-            var book = _dbContext.Books
+
+
+            //var author = _dbContext.Authors
+            //                    .Include(u => u.Book)
+            //                    .First(p => p.Id == bookDelete);
+
+            var book = _dbContext.Books.Include(a => a.Author)
                      .Include(u => u.Sections)
                      .First(p => p.Id == bookDelete);
+
+            //var usersDeleteBook = _dbContext.Authors.Include(x => x.Book).First(s => s.Book == book);
+            //var librarys = _dbContext.Userlibraries.Include(d => d.Book).First(p => p.Book == book);
+
             var dsd = _dbContext.Userlibraries.Include(d => d.Book).ToList();
 
             foreach (var userlibrary in dsd)
             {
-                _dbContext.Userlibraries.Remove(userlibrary);
+                if (userlibrary.Book == book)
+                {
+                    _dbContext.Userlibraries.Remove(userlibrary);
+                }
+
             }
 
             foreach (var section in book.Sections)
@@ -33,14 +43,14 @@ namespace MVC_ChitAlka.Servises
                 _dbContext.Sections.Remove(section);
 
             }
-            _dbContext.Authors.Remove(author);
+            _dbContext.Authors.Remove(book.Author);
             _dbContext.Books.Remove(book);
             _dbContext.SaveChanges();
         }
 
         public void UserBookDelete(User user, int bookDelete)
         {
-            
+
             var currentUser = _dbContext
                 .Users.Include(a => a.Userlibrary)
                 .FirstOrDefault(x => x.Id == user.Id);
