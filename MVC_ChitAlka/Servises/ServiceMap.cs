@@ -67,19 +67,17 @@ namespace MVC_ChitAlka.Servises
         internal List<SectionModel> MapDbSection(List<Book> bookDB, int bookId, int sectionID)
         {
             var st = 0;
-            var book = new BookModel();
+          
             List<SectionModel> actualSection = new List<SectionModel>();
             foreach (Book bookmodel in bookDB)
             {
                 if (bookmodel.Id == bookId)
-                {
-                    //var returnedSection = bookmodel.Sections[0];
-                    //var st = returnedSection.Id;
+                {         
                     foreach (Section s in bookmodel.Sections)
                     {
                         st = st + 1;
                         var sectionmodel = new SectionModel();
-                        sectionmodel.Id = s.Id;
+                        sectionmodel.Id = s.Id+1;
 
 
                         if (s.Id == sectionID)

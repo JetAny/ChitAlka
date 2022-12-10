@@ -33,7 +33,6 @@ namespace MVC_ChitAlka.Controllers
         public async Task<IActionResult> UserLib()
         {
             User currentUser = await GetCurrentUserAsync();
-            //var user = await _userManager.FindByIdAsync(currentUser.Id);
 
             dynamic mymodel = new ExpandoObject();
             mymodel.Author = _userLibraryService.GetUserLibrary(currentUser);

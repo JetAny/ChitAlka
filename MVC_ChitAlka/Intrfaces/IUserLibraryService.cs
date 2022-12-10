@@ -5,7 +5,7 @@ namespace MVC_ChitAlka.Intrfaces
 {
     public interface IUserLibraryService
     {
-         Task<int> GetUserBook(User currentUser,int bookId,bool fl);
+         Section GetUserBook(User currentUser,int bookId,int fl);
         public List<AuthorModel> GetUserLibrary(User user);
     }
 }

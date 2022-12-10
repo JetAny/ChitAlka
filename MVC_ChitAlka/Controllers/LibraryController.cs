@@ -103,24 +103,24 @@ namespace MVC_ChitAlka.Controllers
 
         [Authorize]
         [Route("Library/ReadBook")]
-        public async Task<IActionResult> CreateUserLib(int bookId, bool fl)
+        public async Task<IActionResult> CreateUserLib(int bookId, int fl)
         {
             User currentUserLazi = await GetCurrentUserAsync();
 
             User currentUser = _dbContext.Users.Include(a => a.Userlibrary).FirstOrDefault(x => x.Id == currentUserLazi.Id);
-
-            if (currentUser.Userlibrary.Count == 0 & fl == false)
-            {
-                return Redirect("~/Library/BookPage?BookId=" + bookId);
-            }
             var bookSection = _userLibraryService.GetUserBook(currentUser, bookId, fl);
-            if (await bookSection == -1)
+
+            if (bookSection == null)
             {
                 return Redirect("~/Library/BookPage?BookId=" + bookId);
             }
-            var section = _getSectionBookService.GetSection(bookId, await bookSection);
-            return View("ReadBook", section);
-        }
+
+            dynamic mymodel = new ExpandoObject();
+            mymodel.Section = bookSection;
+            mymodel.BookId = bookId;
+
+            return View("ReadBook", mymodel);
+         }
 
         [Authorize]
         [Route("Library/BookDelete")]
