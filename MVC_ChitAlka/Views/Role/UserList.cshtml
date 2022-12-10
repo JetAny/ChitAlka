@@ -1,0 +1,48 @@
+﻿
+
+ @model dynamic
+@{
+    ViewData["Title"] = "USERS";
+}
+  
+<h1 class="bg-info text-white">All Users</h1>
+<a asp-action="Create" class="btn btn-secondary">Create a Role</a>
+  
+<table class="table table-sm table-bordered table-bordered">
+    <tr><th>ID</th><th>Name</th><th>Email</th><th>User roles</th><th>Add role</th></tr>
+    @foreach (var user in Model.Users.Keys)
+     {
+        <tr>
+            <form>
+            <td>
+                <a class="card-link" asp-area="Identity" asp-page="/Account/Login">@user.Id</a>
+            </td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>
+                    @foreach (var roleUs in Model.Users[user])
+                    {
+                        <div class="form-check" name="delRole">
+                          <input class="form-check-input" type="radio" value=@roleUs name="delRole" id="flexCheckDefault">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            @roleUs
+                          </label>
+                        </div> 
+                     }                    
+            </td>          
+            <td>
+                <select class="form-select form-select-sm" name="roleId" aria-label=".form-select-sm example">
+                  <option selected>Выберите роль</option>
+                  @foreach (var role in @Model.AllRoles)
+                  {                     
+                      <option value="@role.Id">@role.Name</option>                    
+                  }
+                </select>
+            </td>
+            <input type="hidden" value=@user.Id name="userId">
+            <td><button type="submit" class="btn btn-primary" method="get" formaction="/AddRoleToUser">Добавить роль</button></td>
+            <td><button type="submit"  formaction="/Role/DeleteRoleUser" value="delRole" class="btn btn-primary">Удалить роль</button></td>
+            </form>
+        </tr>
+    }
+</table>
