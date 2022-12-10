@@ -28,7 +28,7 @@ public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.Property(u => u.NickName).HasMaxLength(128);
+        builder.Property(u => u.NickName).HasMaxLength(128); // добавим в поле регистрации (добаляем в class RegisterModel для заполнения в форме регистрации)
         builder.Property(u => u.FirstName).HasMaxLength(128);
         builder.Property(u => u.LastName).HasMaxLength(128);
         builder.Property(u => u.LastName).HasMaxLength(128);

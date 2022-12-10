@@ -3,6 +3,7 @@ using DB_ChitAlka.Areas.Identity.Data;
 using MVC_ChitAlka.Intrfaces;
 using MVC_ChitAlka.Servises;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,16 +16,23 @@ builder.Services.AddScoped<IDeleteBookService, DeleteBookService>();
 builder.Services.AddScoped<IUserLibraryService, UserLibraryService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<MyDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+builder.Services.AddDbContext<MyDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))); //для MySQL
 //builder.Services.AddDbContext<MyDbContext>(options =>
-//    options.UseSqlServer(connectionString));
+//    options.UseSqlServer(connectionString)); // для SQL
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false) // false для отмены потверждения регистрации
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<MyDbContext>();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdministratorRole",
+         policy => policy.RequireRole("SuperAdmin","Admin"));
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(); //при работе с RazorPages (может иногда без объяления работать, но не стабильно)
 
 var app = builder.Build();
 
@@ -47,5 +55,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+app.MapRazorPages(); //при работе с RazorPages (в шаблон MVC нет)
 app.Run();
